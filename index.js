@@ -13,6 +13,14 @@ app.use(express.static("public"));
   
 app.listen(PORT, () => console.log("Server started on port ${ PORT }") );
 
+app.get("/", (req, res) => {
+    res.send("Hello");
+});
+
+app.get("/product", (req, res) => {
+    res.send("product");
+});
+
 app.post("/product", (req, res) => {
     const response_url = req.body.response_url;
     const command = req.body.command;
