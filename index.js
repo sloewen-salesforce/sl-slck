@@ -26,6 +26,11 @@ app.post("/product", (req, res) => {
     //...
 
     let t = Math.round(Date.now() % 1000);
+    let q = 0;
+    for (var i = 0; i < text.length; i++) {
+        q += text.charCodeAt(i);
+    }
+    q = Math.round(q % 1000);
 
     // Returning the product details with dummy data...
     request( { 
@@ -44,7 +49,7 @@ app.post("/product", (req, res) => {
                 { type: "section", 
                     text: { 
                         type: "mrkdwn", 
-                        text: "*Quantity on-hand:* _" + t.toString() +"_"
+                        text: "*Quantity on-hand:* _" + q.toString() +"_"
                     } 
                 } 
             ] }
