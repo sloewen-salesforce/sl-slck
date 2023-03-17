@@ -25,6 +25,9 @@ app.post("/product", (req, res) => {
     // Call ERP to get details on the product...
     //...
 
+    let t = Math.round(Date.now() / 1000);
+    let s = "*Quantity on-hand:* _43_" + t.toString();
+
     // Returning the product details with dummy data...
     request( { 
         url: response_url,
@@ -42,7 +45,7 @@ app.post("/product", (req, res) => {
                 { type: "section", 
                     text: { 
                         type: "mrkdwn", 
-                        text: "*Quantity on-hand:* _43_"
+                        text: s
                     } 
                 } 
             ] }
